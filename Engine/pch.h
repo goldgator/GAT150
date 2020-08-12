@@ -13,11 +13,18 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
+#include "Math/color.h"
+//#include "Math/Random.h"
+#include "Math/Transform.h"
+#include "Math/Vector2.h"
+#include "Math/MathExt.h"
+
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
 #include <list>
 #include <map>
+#include <chrono>
 
 #endif //PCH_H

@@ -1,12 +1,13 @@
 #include "pch.h"
 #include "Texture.h"
 #include "Math/Vector2.h"
+#include "Graphics/Renderer.h"
 
 
 namespace nc {
-	bool Texture::Create(const std::string& name, SDL_Renderer* renderer)
+	bool Texture::Create(const std::string& name, void* renderer)
 	{
-		m_renderer = renderer;
+		m_renderer = static_cast<Renderer*>(renderer)->m_renderer;
 
 		SDL_Surface* surface = IMG_Load(name.c_str());
 		if (surface == nullptr) return false;
@@ -18,7 +19,7 @@ namespace nc {
 
 	void Texture::Destroy()
 	{
-		//delete m_texture;
+		SDL_DestroyTexture(m_texture);
 	}
 
 	void Texture::Draw(const Vector2& position, const Vector2& scale, float angle)
@@ -33,6 +34,20 @@ namespace nc {
 		rect.h = static_cast<int>(size.y);
 
 		SDL_RenderCopyEx(m_renderer, m_texture, nullptr, &rect, angle, nullptr, SDL_FLIP_NONE);
+	}
+
+	void Texture::Draw(const SDL_Rect& source, const Vector2& position, const Vector2& scale, float angle)
+	{
+		Vector2 size = {static_cast<float>(source.w), static_cast<float>(source.h)};
+		size = size * scale;
+
+		SDL_Rect rect;
+		rect.y = static_cast<int>(position.y);
+		rect.x = static_cast<int>(position.x);
+		rect.w = static_cast<int>(size.x);
+		rect.h = static_cast<int>(size.y);
+
+		SDL_RenderCopyEx(m_renderer, m_texture, &source, &rect, angle, nullptr, SDL_FLIP_NONE);
 	}
 
 	Vector2 Texture::GetSize()
