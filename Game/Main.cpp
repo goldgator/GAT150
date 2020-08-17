@@ -7,28 +7,45 @@
 #include "Objects/GameObject.h"
 #include "Components/PhysicsComponent.h"
 #include "Components/SpriteComponent.h"
+#include "Components/PlayerComponent.h"
+#include "Core/Json.h"
+#include "Core/Factory.h"
 
 nc::Engine engine;
 nc::GameObject player;
+nc::Factory<nc::Object, std::string> objectFactory;
 
 int main(int, char**)
 {
 	//profile
-	for (size_t i = 0; i < 100; i++) { std::sqrt(rand() % 100); }
+	//for (size_t i = 0; i < 100; i++) { std::sqrt(rand() % 100); }
+	//std::cout << engine.GetTimer().ElapsedSeconds() << std::endl;
 
-	std::cout << engine.GetTimer().ElapsedSeconds() << std::endl;
+	objectFactory.Register("GameObject", nc::Object::Instantiate<nc::GameObject>);
+	objectFactory.Register("PhysicsComponent", nc::Object::Instantiate<nc::PhysicsComponent>);
+
+	nc::GameObject* player = objectFactory.Create<nc::GameObject>("GameObject");
 
 	engine.Startup();
 	
-	player.Create(&engine);
-	player.m_transform.position = { 400, 300 };
-	player.m_transform.angle = 45;
-	nc::Component* component = new nc::PhysicsComponent;
-	player.AddComponent(component);
+	rapidjson::Document document;
+	player->Create(&engine);
+	nc::json::Load("player.txt", document);
+	player->Read(document);
+	//player.m_transform.position = { 400, 300 };
+	//player.m_transform.angle = 45;
+	nc::Component* component = objectFactory.Create<nc::Component>("PhysicsComponent");
+	player->AddComponent(component);
 	component->Create();
 
 	component = new nc::SpriteComponent;
-	player.AddComponent(component);
+	player->AddComponent(component);
+	nc::json::Load("sprite.txt", document);
+	component->Read(document);
+	component->Create();
+
+	component = new nc::PlayerComponent;
+	player->AddComponent(component);
 	component->Create();
 
 
@@ -52,30 +69,8 @@ int main(int, char**)
 
 		//INPUT
 		engine.Update();
-		player.Update();
+		player->Update();
 
-		if (engine.GetSystem<nc::InputSystem>()->GetButtonState(SDL_SCANCODE_ESCAPE) == nc::InputSystem::eButtonState::PRESSED)
-		{
-			quit = true;
-		}
-
-		// player controller
-		if (engine.GetSystem<nc::InputSystem>()->GetButtonState(SDL_SCANCODE_A) == nc::InputSystem::eButtonState::HELD)
-		{
-			player.m_transform.angle = player.m_transform.angle - 90.0f * engine.GetTimer().DeltaTime();
-		}
-		if (engine.GetSystem<nc::InputSystem>()->GetButtonState(SDL_SCANCODE_D) == nc::InputSystem::eButtonState::HELD)
-		{
-			player.m_transform.angle = player.m_transform.angle + 90.0f * engine.GetTimer().DeltaTime();
-		}
-		nc::Vector2 force{ 0,0 };
-		if (engine.GetSystem<nc::InputSystem>()->GetButtonState(SDL_SCANCODE_W) == nc::InputSystem::eButtonState::HELD)
-		{
-			force = nc::Vector2(0, -1) * 1000.0f;
-		}
-
-		//physics
-		force = nc::Vector2::Rotate(force, nc::DegreesToRadians(player.m_transform.angle));
 		
 
 		// BEGIN
@@ -83,7 +78,7 @@ int main(int, char**)
 
 		//Draw
 		background->Draw({ 0,0 }, {1.0f,1.0f}, 0);
-		player.Draw();
+		player->Draw();
 		
 
 		// END

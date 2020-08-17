@@ -18,6 +18,7 @@
 #include "Math/Transform.h"
 #include "Math/Vector2.h"
 #include "Math/MathExt.h"
+#include "Core/Assert.h"
 
 #include <iostream>
 #include <fstream>
@@ -26,5 +27,6 @@
 #include <list>
 #include <map>
 #include <chrono>
+#include <functional>
 
 #endif //PCH_H

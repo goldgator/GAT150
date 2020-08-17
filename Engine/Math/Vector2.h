@@ -20,6 +20,11 @@ namespace nc {
 
 		inline void Set(float x, float y) { this->x = x; this->y = y; };
 
+		friend std::ostream& operator << (std::ostream& stream, Vector2& v) {
+			stream << v.x << " " << v.y;
+			return stream;
+		}
+
 		Vector2 operator + (const Vector2& v) const { return Vector2(x + v.x, y + v.y); };
 		Vector2 operator - (const Vector2& v) const { return Vector2(x - v.x, y - v.y); };
 		Vector2 operator * (const Vector2& v) const { return Vector2(x * v.x, y * v.y); };

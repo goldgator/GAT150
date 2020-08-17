@@ -10,7 +10,11 @@ namespace nc {
 		virtual void Update() override;
 		virtual void Draw() override;
 
+		void Read(const rapidjson::Value& value);
+
 	protected:
 		class Texture* m_texture;
+		std::string m_textureName;
+		SDL_Rect m_rect;
 	};
 }

@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include <algorithm>
 #include <string>
+#include <iostream>
 using std::string;
 
 namespace nc {
@@ -16,6 +17,11 @@ namespace nc {
 		const float& operator [] (size_t index) const { return (&r)[index]; };
 
 		void Set(float r, float g, float b) { this->r = r; this->g = g; this->b = b; };
+
+		friend std::ostream& operator << (std::ostream& stream, Color& c) {
+			stream << c.r << " " << c.g << " " << c.b << " " << c.a;
+			return stream;
+		}
 
 		Color operator + (const Color& c) const { return Color(r + c.r, g + c.g, b + c.b); };
 		Color operator - (const Color& c) const { return Color(r - c.r, g - c.g, b - c.b); };
