@@ -27,7 +27,7 @@
     <Filter Include="Components">
       <UniqueIdentifier>{8209c103-1c5c-4055-b6d8-e59491fe2b36}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Graphics">
+    <Filter Include="Core\Graphics">
       <UniqueIdentifier>{5b780db8-64f8-4923-a09c-5085b8f53513}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -60,7 +60,7 @@
       <Filter>Math</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\Texture.h">
-      <Filter>Header Files\Graphics</Filter>
+      <Filter>Core\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Core\System.h">
       <Filter>Core</Filter>
@@ -72,7 +72,7 @@
       <Filter>Resources</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\Renderer.h">
-      <Filter>Header Files\Graphics</Filter>
+      <Filter>Core\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Input\InputSystem.h">
       <Filter>Input</Filter>
@@ -110,19 +110,31 @@
     <ClInclude Include="Objects\Factory.h">
       <Filter>Core</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Singleton.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\ObjectFactory.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Scene.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\SpriteAnimationComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\Texture.cpp">
-      <Filter>Header Files\Graphics</Filter>
+      <Filter>Core\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Resources\ResourceManager.cpp">
       <Filter>Resources</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\Renderer.cpp">
-      <Filter>Header Files\Graphics</Filter>
+      <Filter>Core\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Input\InputSystem.cpp">
       <Filter>Input</Filter>
@@ -147,6 +159,15 @@
     </ClCompile>
     <ClCompile Include="Core\Assert.cpp">
       <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\ObjectFactory.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Scene.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\SpriteAnimationComponent.cpp">
+      <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

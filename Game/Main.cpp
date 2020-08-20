@@ -5,15 +5,17 @@
 #include "Graphics/Texture.h"
 #include "Engine.h"
 #include "Objects/GameObject.h"
-#include "Components/PhysicsComponent.h"
-#include "Components/SpriteComponent.h"
 #include "Components/PlayerComponent.h"
 #include "Core/Json.h"
-#include "Core/Factory.h"
+#include "Objects/ObjectFactory.h"
+#include "Objects/Scene.h"
+
 
 nc::Engine engine;
 nc::GameObject player;
-nc::Factory<nc::Object, std::string> objectFactory;
+nc::Scene scene;
+
+//nc::ObjectFactory objectFactory;
 
 int main(int, char**)
 {
@@ -21,36 +23,36 @@ int main(int, char**)
 	//for (size_t i = 0; i < 100; i++) { std::sqrt(rand() % 100); }
 	//std::cout << engine.GetTimer().ElapsedSeconds() << std::endl;
 
-	objectFactory.Register("GameObject", nc::Object::Instantiate<nc::GameObject>);
-	objectFactory.Register("PhysicsComponent", nc::Object::Instantiate<nc::PhysicsComponent>);
+	scene.Create(&engine);
 
-	nc::GameObject* player = objectFactory.Create<nc::GameObject>("GameObject");
+	nc::ObjectFactory::Instance().Initialize();
+	nc::ObjectFactory::Instance().Register("PlayerComponent", nc::Object::Instantiate<nc::PlayerComponent>);
+
+	/*nc::GameObject* player = nc::ObjectFactory::Instance().Create<nc::GameObject>("GameObject");*/
 
 	engine.Startup();
 	
 	rapidjson::Document document;
-	player->Create(&engine);
-	nc::json::Load("player.txt", document);
-	player->Read(document);
-	//player.m_transform.position = { 400, 300 };
-	//player.m_transform.angle = 45;
-	nc::Component* component = objectFactory.Create<nc::Component>("PhysicsComponent");
+	nc::json::Load("Scene.txt", document);
+	scene.Read(document);
+	
+	/*nc::Component* component = nc::ObjectFactory::Instance().Create<nc::Component>("PhysicsComponent");
+	component->Create(player);
 	player->AddComponent(component);
-	component->Create();
 
-	component = new nc::SpriteComponent;
-	player->AddComponent(component);
+	component = nc::ObjectFactory::Instance().Create<nc::Component>("SpriteComponent");
+	component->Create(player);
 	nc::json::Load("sprite.txt", document);
 	component->Read(document);
-	component->Create();
-
-	component = new nc::PlayerComponent;
 	player->AddComponent(component);
-	component->Create();
+
+	component = nc::ObjectFactory::Instance().Create<nc::Component>("PlayerComponent");
+	component->Create(player);
+	player->AddComponent(component);*/
 
 
 	//Texture
-	nc::Texture* background = engine.GetSystem<nc::ResourceManager>()->Get<nc::Texture>("background.png", engine.GetSystem<nc::Renderer>());
+	//nc::Texture* background = engine.GetSystem<nc::ResourceManager>()->Get<nc::Texture>("background.png", engine.GetSystem<nc::Renderer>());
 
 	
 	SDL_Event event;
@@ -69,16 +71,15 @@ int main(int, char**)
 
 		//INPUT
 		engine.Update();
-		player->Update();
-
+		scene.Update();
 		
 
 		// BEGIN
 		engine.GetSystem<nc::Renderer>()->BeginFrame();
 
 		//Draw
-		background->Draw({ 0,0 }, {1.0f,1.0f}, 0);
-		player->Draw();
+		//background->Draw({ 0,0 }, {1.0f,1.0f}, 0);
+		scene.Draw();
 		
 
 		// END
@@ -87,5 +88,6 @@ int main(int, char**)
 	}
 
 	engine.Shutdown();
+	scene.Destroy();
 	return 0; 
 }

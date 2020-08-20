@@ -18,6 +18,8 @@ namespace nc {
 		void Update();
 		void Draw();
 
+		void ReadComponents(const rapidjson::Value& value);
+
 
 		template<typename T>
 		T* GetComponent() {
@@ -40,9 +42,9 @@ namespace nc {
 	public:
 		Transform m_transform;
 		Engine* m_engine;
+		std::string m_name;
 
 	protected:
 		std::vector<Component*> m_components;
-
 	};
 }
