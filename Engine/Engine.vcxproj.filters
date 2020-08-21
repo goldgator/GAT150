@@ -107,9 +107,6 @@
     <ClInclude Include="Core\Assert.h">
       <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="Objects\Factory.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Singleton.h">
       <Filter>Core</Filter>
     </ClInclude>
@@ -121,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="Components\SpriteAnimationComponent.h">
       <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Factory.h">
+      <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -6,6 +6,7 @@ namespace nc {
 	public:
 		virtual bool Create(void* data = nullptr) override;
 		virtual void Destroy() override;
+		virtual SpriteComponent* Clone() override { return new SpriteComponent{ *this }; }
 
 		virtual void Update() override;
 		virtual void Draw() override;

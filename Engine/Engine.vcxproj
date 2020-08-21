@@ -177,6 +177,7 @@
     <ClInclude Include="Components\SpriteAnimationComponent.h" />
     <ClInclude Include="Components\SpriteComponent.h" />
     <ClInclude Include="Core\Assert.h" />
+    <ClInclude Include="Core\Factory.h" />
     <ClInclude Include="Core\Json.h" />
     <ClInclude Include="Core\Singleton.h" />
     <ClInclude Include="Core\System.h" />
@@ -195,7 +196,6 @@
     <ClInclude Include="Math\Vector2.h" />
     <ClInclude Include="Objects\GameObject.h" />
     <ClInclude Include="Objects\Object.h" />
-    <ClInclude Include="Objects\Factory.h" />
     <ClInclude Include="Objects\ObjectFactory.h" />
     <ClInclude Include="Objects\Scene.h" />
     <ClInclude Include="pch.h" />

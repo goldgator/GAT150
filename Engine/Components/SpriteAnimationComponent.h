@@ -6,6 +6,7 @@ namespace nc {
 	class SpriteAnimationComponent : public SpriteComponent {
 		virtual bool Create(void* data = nullptr) override;
 		virtual void Destroy() override;
+		virtual SpriteAnimationComponent* Clone() override { return new SpriteAnimationComponent{ *this }; }
 
 		virtual void Update() override;
 

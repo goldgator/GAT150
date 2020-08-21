@@ -6,6 +6,18 @@
 
 
 namespace nc {
+    GameObject::GameObject(const GameObject& other)
+    {
+        m_name = other.m_name;
+        m_transform = other.m_transform;
+        m_engine = other.m_engine;
+
+        for (Component* component : other.m_components) {
+            Component* clone = dynamic_cast<Component*>(component->Clone());
+            clone->m_owner = this;
+            AddComponent(clone);
+        }
+    }
     bool GameObject::Create(void* data)
     {
         m_engine = static_cast<Engine*>(data);
@@ -72,7 +84,7 @@ namespace nc {
                 std::string typeName;
                 json::Get(componentValue, "type", typeName);
 
-                Component* component = ObjectFactory::Instance().Create<Component>(typeName);
+                Component* component = nc::ObjectFactory::Instance().Create<nc::Component>(typeName);
                     if (component)
                     {
                         component->Create(this);

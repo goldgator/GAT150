@@ -26,7 +26,7 @@ int main(int, char**)
 	scene.Create(&engine);
 
 	nc::ObjectFactory::Instance().Initialize();
-	nc::ObjectFactory::Instance().Register("PlayerComponent", nc::Object::Instantiate<nc::PlayerComponent>);
+	nc::ObjectFactory::Instance().Register("PlayerComponent", new nc::Creator<nc::PlayerComponent,nc::Object>);
 
 	/*nc::GameObject* player = nc::ObjectFactory::Instance().Create<nc::GameObject>("GameObject");*/
 
@@ -36,23 +36,12 @@ int main(int, char**)
 	nc::json::Load("Scene.txt", document);
 	scene.Read(document);
 	
-	/*nc::Component* component = nc::ObjectFactory::Instance().Create<nc::Component>("PhysicsComponent");
-	component->Create(player);
-	player->AddComponent(component);
-
-	component = nc::ObjectFactory::Instance().Create<nc::Component>("SpriteComponent");
-	component->Create(player);
-	nc::json::Load("sprite.txt", document);
-	component->Read(document);
-	player->AddComponent(component);
-
-	component = nc::ObjectFactory::Instance().Create<nc::Component>("PlayerComponent");
-	component->Create(player);
-	player->AddComponent(component);*/
-
-
-	//Texture
-	//nc::Texture* background = engine.GetSystem<nc::ResourceManager>()->Get<nc::Texture>("background.png", engine.GetSystem<nc::Renderer>());
+	for (size_t i = 0; i < 10; i++) {
+		nc::GameObject* gameObject = nc::ObjectFactory::Instance().Create<nc::GameObject>("ProtoExplosion");
+		gameObject->m_transform.angle = nc::random(0, 360);
+		gameObject->m_transform.position = { static_cast<float>(nc::random(0,800)),static_cast<float>(nc::random(0,600)) };
+		scene.AddGameObject(gameObject);
+	}
 
 	
 	SDL_Event event;
