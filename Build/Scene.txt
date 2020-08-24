@@ -3,6 +3,9 @@
       {
          "type":"GameObject",
          "name":"ProtoExplosion",
+	 "tag":"FX",
+	 "transient":true,
+	 "lifetime":1.5,
          "position":[
             500,
             200
@@ -51,6 +54,7 @@
       {
          "type":"GameObject",
          "name":"Player",
+	 "tag":"Player",
          "position":[
             300,
             400
@@ -81,28 +85,25 @@
          ]
       },
       {
-         "type":"GameObject",
+         "type":"ProtoExplosion",
          "name":"Explosion",
+	 "lifetime":4.0,
          "position":[
-            500,
-            200
+            300,
+            100
          ],
          "scale":1,
-         "angle":0,
-         "Components":[
-            {
-               "type":"SpriteAnimationComponent",
-               "texture":"explosion.png",
-               "origin":[
-                  0.5,
-                  0.5
-               ],
-               "numX":5,
-               "numY":5,
-               "numFrames":25,
-               "fps":30
-            }
-         ]
+         "angle":0
+      },
+      {
+         "type":"ProtoExplosion",
+         "name":"Explosion",
+         "position":[
+            100,
+            300
+         ],
+         "scale":2,
+         "angle":0
       }
    ]
 }

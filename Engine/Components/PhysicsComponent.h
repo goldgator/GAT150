@@ -16,6 +16,6 @@ namespace nc {
 	protected:
 		Vector2 m_velocity;
 		Vector2 m_force;
-		float m_drag{1};
+		float m_drag{.95};
 	};
 }

@@ -2,12 +2,21 @@
 #include "Object.h"
 #include "Math/Transform.h"
 #include "Engine.h"
+
+#include <bitset>
 #include <vector>
 
 namespace nc {
 	class Component; //forward Declaration
 
 	class GameObject : public Object {
+	public:
+		enum eFlags { //<0,1,0,0>
+			ACTIVE,
+			VISIBLE,
+			DESTROY,
+			TRANSIENT
+		};
 	public:
 		GameObject() = default;
 		GameObject(const GameObject& other);
@@ -44,9 +53,14 @@ namespace nc {
 		friend class PhysicsComponent;
 
 	public:
+		std::string m_name;
+		std::string m_tag;
+		float m_lifetime{0};
+		
+		std::bitset<32> m_flags; // (int) <0...31> (0,1,0,1,0,1,1,1,0...)
+
 		Transform m_transform;
 		Engine* m_engine{nullptr};
-		std::string m_name;
 
 	protected:
 		std::vector<Component*> m_components;
