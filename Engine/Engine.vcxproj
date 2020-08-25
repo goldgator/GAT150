@@ -90,7 +90,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Middleware\JSON\include\rapidjson;$(SolutionDir)Middleware\SDL2-2.0.12\include;$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)\Middleware\Box2D;%(AdditionalDependencies);$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Middleware\fmod\api\core\inc;$(SolutionDir)Middleware\JSON\include\rapidjson;$(SolutionDir)Middleware\SDL2-2.0.12\include;$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)\Middleware\Box2D;%(AdditionalDependencies);$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -98,7 +98,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)Middleware\SDL2-2.0.12\lib\x86;%(AdditionalLibraryDirectories);$(SolutionDir)Middleware\Box2D\lib;$(SolutionDir)Middleware\Box2D\lib</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
@@ -112,7 +112,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Middleware\JSON\include\rapidjson;$(SolutionDir)Middleware\SDL2-2.0.12\include;$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)\Middleware\Box2D;%(AdditionalDependencies);$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Middleware\fmod\api\core\inc;$(SolutionDir)Middleware\JSON\include\rapidjson;$(SolutionDir)Middleware\SDL2-2.0.12\include;$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)\Middleware\Box2D;%(AdditionalDependencies);$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -122,7 +122,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)Middleware\SDL2-2.0.12\lib\x86;%(AdditionalLibraryDirectories);$(SolutionDir)Middleware\Box2D\lib;$(SolutionDir)Middleware\Box2D\lib</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
@@ -134,7 +134,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Middleware\JSON\include\rapidjson;$(SolutionDir)Middleware\SDL2-2.0.12\include;$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)\Middleware\Box2D;%(AdditionalDependencies);$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Middleware\fmod\api\core\inc;$(SolutionDir)Middleware\JSON\include\rapidjson;$(SolutionDir)Middleware\SDL2-2.0.12\include;$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)\Middleware\Box2D;%(AdditionalDependencies);$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -142,8 +142,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Middleware\SDL2-2.0.12\lib\x64;%(AdditionalLibraryDirectories);$(SolutionDir)Middleware\Box2D\lib;$(SolutionDir)Middleware\Box2D\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;fmod_vc.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Middleware\fmod\api\core\lib\x64;$(SolutionDir)Middleware\SDL2-2.0.12\lib\x64;%(AdditionalLibraryDirectories);$(SolutionDir)Middleware\Box2D\lib</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -156,7 +156,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Middleware\JSON\include\rapidjson;$(SolutionDir)Middleware\SDL2-2.0.12\include;$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)\Middleware\Box2D;%(AdditionalDependencies);$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Middleware\fmod\api\core\inc;$(SolutionDir)Middleware\JSON\include\rapidjson;$(SolutionDir)Middleware\SDL2-2.0.12\include;$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)\Middleware\Box2D;%(AdditionalDependencies);$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -166,8 +166,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Middleware\SDL2-2.0.12\lib\x64;%(AdditionalLibraryDirectories);$(SolutionDir)Middleware\Box2D\lib;$(SolutionDir)Middleware\Box2D\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;fmod_vc.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Middleware\fmod\api\core\lib\x64;$(SolutionDir)Middleware\SDL2-2.0.12\lib\x64;%(AdditionalLibraryDirectories);$(SolutionDir)Middleware\Box2D\lib</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
