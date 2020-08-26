@@ -36,12 +36,12 @@ int main(int, char**)
 	nc::json::Load("Scene.txt", document);
 	scene.Read(document);
 	
-	/*for (size_t i = 0; i < 10; i++) {
-		nc::GameObject* gameObject = nc::ObjectFactory::Instance().Create<nc::GameObject>("ProtoExplosion");
+	for (size_t i = 0; i < 10; i++) {
+		nc::GameObject* gameObject = nc::ObjectFactory::Instance().Create<nc::GameObject>("ProtoBox");
 		gameObject->m_transform.angle = nc::random(0, 360);
 		gameObject->m_transform.position = { static_cast<float>(nc::random(0,800)),static_cast<float>(nc::random(0,600)) };
 		scene.AddGameObject(gameObject);
-	}*/
+	}
 
 	
 	SDL_Event event;

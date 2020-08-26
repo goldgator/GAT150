@@ -8,6 +8,8 @@ namespace nc {
 		b2Vec2 gravity = { 0, 150 };
 		m_world = new b2World(gravity);
 
+		m_contactListener = new ContactListener;
+		m_world->SetContactListener(m_contactListener);
 
 		return true;
 	}
@@ -16,6 +18,7 @@ namespace nc {
 	{
 		delete m_world;
 		m_world = nullptr;
+		//TODO delete contact listener
 	}
 
 	void PhysicsSystem::Update()
@@ -55,6 +58,7 @@ namespace nc {
 		fixtureDef.shape = &shape;
 		fixtureDef.density = data.density;
 		fixtureDef.friction = data.friction;
+		fixtureDef.restitution = data.restitution;
 		fixtureDef.userData = gameObject;
 
 		body->CreateFixture(&fixtureDef);

@@ -13,6 +13,7 @@ namespace nc {
                 rapidjson::IStreamWrapper istream(stream);
                 document.ParseStream(istream);       
                 success = document.IsObject(); 
+                ASSERT_MSG(success, "Error json not valid: " + filename);
             }
             return success;
         }

@@ -31,6 +31,9 @@ namespace nc {
 		void Update();
 		void Draw();
 
+		void BeginContact(GameObject* other);
+		void EndContact(GameObject* other);
+
 		void ReadComponents(const rapidjson::Value& value);
 
 

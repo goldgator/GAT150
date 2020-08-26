@@ -93,6 +93,16 @@ namespace nc {
         }
     }
 
+    void GameObject::BeginContact(GameObject* other)
+    {
+        std::cout << "begin: " << other->m_name << std::endl;
+    }
+
+    void GameObject::EndContact(GameObject* other)
+    {
+        std::cout << "end: " << other->m_name << std::endl;
+    }
+
     void GameObject::ReadComponents(const rapidjson::Value& value)
     {
         for (rapidjson::SizeType i = 0; i < value.Size(); i++)

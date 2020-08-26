@@ -34,4 +34,8 @@ namespace nc {
 		return (degree / 180) * PI;
 	}
 
+	inline float RadiansToDegrees(float radians) {
+		return (radians / PI) * 180;
+	}
+
 }

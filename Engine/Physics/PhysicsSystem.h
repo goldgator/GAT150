@@ -2,6 +2,7 @@
 #include "Core/System.h"
 #include "box2d/Box2d.h"
 #include "Math/Vector2.h"
+#include "ContactListener.h"
 
 namespace nc {
 	class GameObject;
@@ -11,6 +12,7 @@ namespace nc {
 			Vector2 size;
 			float density{ 0 };
 			float friction{ 1 };
+			float restitution{ 0.3f };
 			bool lockAngle{ false };
 			bool isDynamic{ false };
 		};
@@ -26,5 +28,6 @@ namespace nc {
 
 	protected:
 		b2World* m_world{nullptr};
+		ContactListener* m_contactListener{nullptr};
 	};
 }
