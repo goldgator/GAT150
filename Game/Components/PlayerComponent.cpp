@@ -2,6 +2,7 @@
 #include "PlayerComponent.h"
 #include "Components/PhysicsComponent.h"
 #include "Components/RigidBodyComponent.h"
+#include "Components/AudioComponent.h"
 
 
 namespace nc {
@@ -37,7 +38,10 @@ namespace nc {
 		if (m_owner->m_engine->GetSystem<nc::InputSystem>()->GetButtonState(SDL_SCANCODE_SPACE) == nc::InputSystem::eButtonState::PRESSED && onGround)
 		{
 			force.y = -2000;
-			//m_owner->m_transform.angle = m_owner->m_transform.angle + 90.0f * m_owner->m_engine->GetTimer().DeltaTime();
+			AudioComponent* audioComponent = m_owner->GetComponent<AudioComponent>();
+			if (audioComponent) {
+				audioComponent->Play();
+			}
 		}
 
 		RigidBodyComponent* component = m_owner->GetComponent<RigidBodyComponent>();

@@ -24,7 +24,7 @@ namespace nc {
 		// Inherited via Object
 		virtual bool Create(void* data = nullptr) override;
 		virtual void Destroy() override;
-		virtual Object* Clone() override { return new GameObject{*this}; }
+		virtual Object* Clone() const override { return new GameObject{*this}; }
 
 		void Read(const rapidjson::Value& value) override;
 

@@ -7,7 +7,7 @@ namespace nc {
 	public:
 		virtual bool Create(void* data = nullptr) override;
 		virtual void Destroy() override;
-		virtual RigidBodyComponent* Clone() override { return new RigidBodyComponent{ *this }; }
+		virtual RigidBodyComponent* Clone() const override { return new RigidBodyComponent{ *this }; }
 
 		void Read(const rapidjson::Value& value);
 

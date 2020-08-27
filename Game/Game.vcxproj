@@ -88,7 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Engine;$(SolutionDir)Middleware\SDL2-2.0.12\include;$(SolutionDir)\Middleware\Box2D;$(SolutionDir)Middleware\JSON\include\rapidjson;%(AdditionalIncludeDirectories);$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)Middleware\Box2D\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)Middleware\fmod\api\core\inc;$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)Middleware\JSON\include\rapidjson;$(SolutionDir)Middleware\SDL2-2.0.12\include;$(SolutionDir)\Engine;$(SolutionDir)Middleware\SDL2-2.0.12\include;$(SolutionDir)\Middleware\Box2D;$(SolutionDir)Middleware\JSON\include\rapidjson;%(AdditionalIncludeDirectories);$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)Middleware\Box2D\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -103,7 +103,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Engine;$(SolutionDir)Middleware\SDL2-2.0.12\include;$(SolutionDir)\Middleware\Box2D;$(SolutionDir)Middleware\JSON\include\rapidjson;%(AdditionalIncludeDirectories);$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)Middleware\Box2D\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)Middleware\fmod\api\core\inc;$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)Middleware\JSON\include\rapidjson;$(SolutionDir)Middleware\SDL2-2.0.12\include;$(SolutionDir)\Engine;$(SolutionDir)Middleware\SDL2-2.0.12\include;$(SolutionDir)\Middleware\Box2D;$(SolutionDir)Middleware\JSON\include\rapidjson;%(AdditionalIncludeDirectories);$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)Middleware\Box2D\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -118,7 +118,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)\Engine;$(SolutionDir)Middleware\SDL2-2.0.12\include;$(SolutionDir)\Middleware\Box2D;$(SolutionDir)Middleware\JSON\include\rapidjson;%(AdditionalIncludeDirectories);$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)Middleware\Box2D\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)Middleware\fmod\api\core\inc;$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)Middleware\JSON\include\rapidjson;$(SolutionDir)Middleware\SDL2-2.0.12\include;$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)\Engine;$(SolutionDir)Middleware\SDL2-2.0.12\include;$(SolutionDir)\Middleware\Box2D;$(SolutionDir)Middleware\JSON\include\rapidjson;%(AdditionalIncludeDirectories);$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)Middleware\Box2D\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -133,7 +133,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)\Engine;$(SolutionDir)Middleware\SDL2-2.0.12\include;$(SolutionDir)\Middleware\Box2D;$(SolutionDir)Middleware\JSON\include\rapidjson;%(AdditionalIncludeDirectories);$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)Middleware\Box2D\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)Middleware\fmod\api\core\inc;$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)Middleware\JSON\include\rapidjson;$(SolutionDir)Middleware\SDL2-2.0.12\include;$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)\Engine;$(SolutionDir)Middleware\SDL2-2.0.12\include;$(SolutionDir)\Middleware\Box2D;$(SolutionDir)Middleware\JSON\include\rapidjson;%(AdditionalIncludeDirectories);$(SolutionDir)Middleware\Box2D\include;$(SolutionDir)Middleware\Box2D\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

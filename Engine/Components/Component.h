@@ -5,7 +5,7 @@ namespace nc {
 	class Component : public Object {
 	public:
 		virtual void Update() = 0;
-
+		
 
 		friend class GameObject;
 	protected:

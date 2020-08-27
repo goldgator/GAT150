@@ -7,7 +7,7 @@ namespace nc {
 	public:
 		virtual bool Create(void* data = nullptr) override;
 		virtual void Destroy() override;
-		virtual PhysicsComponent* Clone() override { return new PhysicsComponent{ *this }; }
+		virtual PhysicsComponent* Clone() const override { return new PhysicsComponent{ *this }; }
 
 		virtual void Update() override;
 
