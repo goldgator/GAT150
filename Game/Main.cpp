@@ -37,9 +37,8 @@ int main(int, char**)
 	scene.Read(document);
 	
 	for (size_t i = 0; i < 10; i++) {
-		nc::GameObject* gameObject = nc::ObjectFactory::Instance().Create<nc::GameObject>("ProtoBox");
-		gameObject->m_transform.angle = nc::random(0, 360);
-		gameObject->m_transform.position = { static_cast<float>(nc::random(0,800)),static_cast<float>(nc::random(0,600)) };
+		nc::GameObject* gameObject = nc::ObjectFactory::Instance().Create<nc::GameObject>("ProtoCoin");
+		gameObject->m_transform.position = { static_cast<float>(nc::random(0,800)),static_cast<float>(nc::random(200,400)) };
 		scene.AddGameObject(gameObject);
 	}
 
