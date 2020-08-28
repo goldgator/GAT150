@@ -18,6 +18,8 @@ namespace nc {
         m_systems.push_back(new PhysicsSystem);
         m_systems.push_back(new AudioSystem);
 
+        
+
         for (auto system : m_systems) {
             system->Startup();
         }

@@ -9,6 +9,7 @@
 #include "Core/Json.h"
 #include "Objects/ObjectFactory.h"
 #include "Objects/Scene.h"
+#include "TileMap.h"
 
 
 nc::Engine engine;
@@ -23,8 +24,6 @@ int main(int, char**)
 	//for (size_t i = 0; i < 100; i++) { std::sqrt(rand() % 100); }
 	//std::cout << engine.GetTimer().ElapsedSeconds() << std::endl;
 
-	scene.Create(&engine);
-
 	nc::ObjectFactory::Instance().Initialize();
 	nc::ObjectFactory::Instance().Register("PlayerComponent", new nc::Creator<nc::PlayerComponent,nc::Object>);
 
@@ -34,13 +33,20 @@ int main(int, char**)
 	
 	rapidjson::Document document;
 	nc::json::Load("Scene.txt", document);
+	scene.Create(&engine);
 	scene.Read(document);
+
+	nc::TileMap tileMap;
+	nc::json::Load("tileMap.txt", document);
+	tileMap.Read(document);
+	tileMap.Create(&scene);
+
 	
-	for (size_t i = 0; i < 10; i++) {
+	/*for (size_t i = 0; i < 10; i++) {
 		nc::GameObject* gameObject = nc::ObjectFactory::Instance().Create<nc::GameObject>("ProtoCoin");
 		gameObject->m_transform.position = { static_cast<float>(nc::random(0,800)),static_cast<float>(nc::random(200,400)) };
 		scene.AddGameObject(gameObject);
-	}
+	}*/
 
 	
 	SDL_Event event;
