@@ -142,6 +142,51 @@
           "density": 1,
           "friction": 1,
           "restitution": 0.1
+        },
+        {
+          "type": "AudioComponent",
+          "sound": "coin.wav",
+          "playOnAwake": false,
+          "loop": false
+        }
+      ]
+    },
+    {
+      "type": "GameObject",
+      "name": "ProtoPlanet",
+      "tag": "CircleBody",
+      "position": [
+        0,
+        0
+      ],
+      "scale": 1,
+      "angle": 0,
+      "Components": [
+        {
+          "type": "SpriteComponent",
+          "texture": "Textures/planet.png",
+          "origin": [
+            0.5,
+            0.5
+          ],
+          "rect": [
+            0,
+            0,
+            192,
+            192
+          ]
+        },
+        {
+          "type": "RigidBodyComponent",
+          "isDynamic": false,
+          "lockAngle": true,
+          "size": [
+            96,
+            96
+          ],
+          "density": 1,
+          "friction": 0.4,
+          "restitution": 0
         }
       ]
     }
@@ -174,28 +219,26 @@
       ]
     },
     {
-      "type": "GameObject",
-      "name": "Ground",
-      "tag": "Floor",
+      "type": "ProtoPlanet",
       "position": [
-        400,
-        450
+        750,
+        500
       ],
-      "scale": 1,
+      "scale": 2,
       "angle": 0,
       "Components": [
         {
           "type": "SpriteComponent",
-          "texture": "ground.png",
+          "texture": "Textures/planet.png",
           "origin": [
             0.5,
-            1.5
+            0.5
           ],
           "rect": [
             0,
             0,
-            800,
-            32
+            192,
+            192
           ]
         },
         {
@@ -203,12 +246,86 @@
           "isDynamic": false,
           "lockAngle": true,
           "size": [
-            400,
-            16
+            192,
+            192
           ],
           "density": 1,
-          "friction": 1,
-          "restitution": 0.5
+          "friction": 0.4,
+          "restitution": 0
+        }
+      ]
+    },
+    {
+      "type": "ProtoPlanet",
+      "position": [
+        600,
+        50
+      ],
+      "scale": 0.5,
+      "angle": 0,
+      "Components": [
+        {
+          "type": "SpriteComponent",
+          "texture": "Textures/planet.png",
+          "origin": [
+            0.5,
+            0.5
+          ],
+          "rect": [
+            0,
+            0,
+            192,
+            192
+          ]
+        },
+        {
+          "type": "RigidBodyComponent",
+          "isDynamic": false,
+          "lockAngle": true,
+          "size": [
+            48,
+            48
+          ],
+          "density": 1,
+          "friction": 0.4,
+          "restitution": 0
+        }
+      ]
+    },
+    {
+      "type": "ProtoPlanet",
+      "position": [
+        220,
+        400
+      ],
+      "scale": 0.75,
+      "angle": 0,
+      "Components": [
+        {
+          "type": "SpriteComponent",
+          "texture": "Textures/planet.png",
+          "origin": [
+            0.5,
+            0.5
+          ],
+          "rect": [
+            0,
+            0,
+            192,
+            192
+          ]
+        },
+        {
+          "type": "RigidBodyComponent",
+          "isDynamic": false,
+          "lockAngle": true,
+          "size": [
+            72,
+            72
+          ],
+          "density": 1,
+          "friction": 0.4,
+          "restitution": 0
         }
       ]
     },
@@ -217,8 +334,8 @@
       "name": "Player",
       "tag": "Player",
       "position": [
-        400,
-        200
+        150,
+        300
       ],
       "scale": 1,
       "angle": 0,
@@ -230,10 +347,10 @@
             0.5,
             0.5
           ],
-          "numX": 8,
-          "numY": 1,
-          "numFrames": 8,
-          "fps": 15
+          "numX": 6,
+          "numY": 11,
+          "numFrames": 62,
+          "fps": 90
         },
         {
           "type": "RigidBodyComponent",
@@ -244,7 +361,8 @@
             32
           ],
           "density": 1,
-          "friction": 1
+          "friction": 0.8,
+          "restitution": 0
         },
         {
           "type": "PlayerComponent"
@@ -252,7 +370,7 @@
         {
           "type": "AudioComponent",
           "sound": "jump.wav",
-          "playOnAwake": true,
+          "playOnAwake": false,
           "loop": false
         }
       ]

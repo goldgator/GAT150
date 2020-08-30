@@ -91,6 +91,14 @@ namespace nc {
 			return n;
 		}
 
+		inline float Angle() {
+			float length = Length();
+			Vector2 n = (length == 0.0f) ? Vector2{ 0.0f, 0.0f } : *this / length;
+			float degrees = (atan2(n.y, n.x) * 180) / 3.1415f;
+
+			return degrees;
+		}
+
 		inline void Normalize() {
 			float length = Length();
 			if (length == 0.0f) {

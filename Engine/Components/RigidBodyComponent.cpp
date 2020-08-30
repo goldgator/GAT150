@@ -29,13 +29,19 @@ namespace nc {
     void RigidBodyComponent::Update()
     {
         if (m_body == nullptr) {
-            m_body = m_owner->m_engine->GetSystem<PhysicsSystem>()->CreateBody((m_owner->m_transform.position), m_owner->m_transform.angle, m_data, m_owner);
+            if (m_owner->m_tag == "CircleBody") {
+                m_body = m_owner->m_engine->GetSystem<PhysicsSystem>()->CreateCircleBody((m_owner->m_transform.position), m_owner->m_transform.angle, m_data, m_owner);
+            }
+            else {
+                m_body = m_owner->m_engine->GetSystem<PhysicsSystem>()->CreateBody((m_owner->m_transform.position), m_owner->m_transform.angle, m_data, m_owner);
+            }
         }
 
         m_owner->m_transform.position = PhysicsSystem::WorldToScreen(m_body->GetPosition());
-        m_owner->m_transform.angle = nc::RadiansToDegrees(m_body->GetAngle());
         m_velocity = m_body->GetLinearVelocity();
-        m_velocity.x = nc::clamp(m_velocity.x, -5.0f, 5.0f);
+        m_velocity.x = nc::clamp(m_velocity.x, -200.0f, 200.0f);
+        m_velocity.y = nc::clamp(m_velocity.y, -200.0f, 200.0f);
+
         m_body->SetLinearVelocity(m_velocity);
     }
 

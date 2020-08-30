@@ -15,6 +15,9 @@ namespace nc {
 
 		void ApplyForce(const Vector2& force) override;
 
+		b2Body* GetBody() { return m_body; };
+		
+
 	protected:
 		PhysicsSystem::RigidBodyData m_data;
 		b2Body* m_body{ nullptr };

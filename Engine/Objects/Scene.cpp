@@ -137,6 +137,8 @@ namespace nc {
     void Scene::AddGameObject(GameObject* gameObject)
     {
         m_gameObjects.push_back(gameObject);
+
+        gameObject->SetScene(this);
     }
 
     void Scene::RemoveGameObject(GameObject* gameObject)

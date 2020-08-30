@@ -26,6 +26,8 @@ namespace nc
 		void AddGameObject(GameObject* gameObject);
 		void RemoveGameObject(GameObject* gameObject);
 		void RemoveAllGameObjects();
+
+		friend class PlayerComponent;
 	protected:
 		Engine* m_engine{ nullptr };
 		std::list<GameObject*> m_gameObjects;

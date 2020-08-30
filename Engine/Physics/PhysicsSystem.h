@@ -25,6 +25,7 @@ namespace nc {
 		virtual void Update() override;
 
 		b2Body* CreateBody(const Vector2& position, float angle, const RigidBodyData& data, GameObject* gameObject);
+		b2Body* CreateCircleBody(const Vector2& position, float angle, const RigidBodyData& data, GameObject* gameObject);
 		void DestroyBody(b2Body* body);
 
 		static Vector2 WorldToScreen(const Vector2& world) { return world * 32.0f; }

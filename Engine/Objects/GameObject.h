@@ -2,6 +2,7 @@
 #include "Object.h"
 #include "Math/Transform.h"
 #include "Engine.h"
+#include "Scene.h"
 
 #include <bitset>
 #include <vector>
@@ -53,8 +54,11 @@ namespace nc {
 		void RemoveComponent(Component* component);
 		void RemoveAllComponents();
 
+		void SetScene(Scene* scene) { m_scene = scene; };
+
 		friend class Component;
 		friend class PhysicsComponent;
+		friend class PlayerComponent;
 
 	public:
 		std::string m_name;
@@ -69,5 +73,6 @@ namespace nc {
 	protected:
 		std::vector<Component*> m_components;
 		std::list<GameObject*> m_contacts;
+		Scene* m_scene;
 	};
 }
